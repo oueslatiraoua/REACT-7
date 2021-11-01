@@ -1,6 +1,10 @@
 import "./App.css";
-
+import "./style.css";
 import React, { Component } from "react";
+import image from "./image2.jpg";
+import ProgressBar from "react-bootstrap/ProgressBar";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   constructor() {
@@ -37,18 +41,41 @@ class App extends Component {
   render() {
     const { count } = this.state;
     return (
-      <div style={{ backgroundColor: "PapayaWhip" }}>
+      <div className="newapp">
         {this.state.isToggleOn ? (
           <div>
-            <h1 style={{ color: "blue" }}>{this.state.person.Fullname}</h1>
-            <h2 style={{ color: "blue" }}>{this.state.person.Bio}</h2>
-            <h3 style={{ color: "blue" }}>{this.state.person.Profession}</h3>
+            <div
+              style={{
+                color: "blue",
+                display: "flex",
+                paddingLeft: "35%",
+                border: "1px solid",
+              }}
+            >
+              {this.state.person.Fullname}
+            </div>
+            <div style={{ color: "blue", fontSize: "70%" }}>
+              {this.state.person.Bio}
+            </div>
+            <aricle style={{ color: "blue", fontSize: "70%" }}>
+              {this.state.person.Profession}
+            </aricle>
+            <br />
+            <img src={image} width="150px" height="50px" />
           </div>
         ) : null}
-        <button onClick={this.handleClick}>HIDE</button>
-        <button onClick={this.handleClicked}>SHOW</button>
-        <button onClick={this.handleToggle}>TOGGLE</button>
-        <h3 style={{ color: "blue" }}>Count:{count}</h3>
+        <button className="btn" onClick={this.handleClick}>
+          HIDE
+        </button>
+        <button className="btn" onClick={this.handleClicked}>
+          SHOW
+        </button>
+        <button className="btn" onClick={this.handleToggle}>
+          TOGGLE
+        </button>
+        <br />
+        <div className="btn">count:{count}</div>
+        <ProgressBar animated now={count} />
       </div>
     );
   }
